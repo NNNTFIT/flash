@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container" id="display">
+        <button class="btn" id="btn">Nhấn đi</button>
+    </div>
+    <script>
+        const btn = document.getElementById("btn")
+        const display = document.getElementById("display")
+        btn.addEventListener("click", () =>{
+            let white = false
+            btn.style.display = "none"
+            setInterval(() => {
+                display.style.background = white ? "black" : "white"
+                white = !white
+            },50)
+        })
+    </script>
+</body>
+</html>
