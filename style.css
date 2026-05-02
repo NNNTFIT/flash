@@ -4,6 +4,8 @@
     box-sizing: border-box;
 }
 body{
+    overflow: hidden;
+    position: relative;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -17,6 +19,14 @@ body{
     align-items: center;
     background-color: #fddcdf;
 }
+.heartRandom{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .btn{
     cursor: pointer;
     padding: 22px 35px;
@@ -26,4 +36,21 @@ body{
     font-weight: 700;
     font-size: 22px;
     color: white;
+    z-index: 999;
+}
+.heart{
+    position: absolute;
+    animation: randomHeart 3s linear forwards;
+    z-index: 1;
+}
+
+@keyframes randomHeart{
+    0% {
+        transform: translateY(250px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-300px);
+        opacity: 0;
+    }
 }

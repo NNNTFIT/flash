@@ -7,13 +7,30 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="heartRandom" id="displayHeart"></div>
     <div class="container" id="display">
         <button class="btn" id="btn">Bắt đầu</button>
     </div>
     <script>
         const btn = document.getElementById("btn")
         const display = document.getElementById("display")
+        const displayHeart = document.getElementById("displayHeart")
+        function activeHeart(){
+            active = setInterval(() => {
+                let heart = document.createElement("div");
+                heart.classList.add("heart")
+                heart.innerText = "💗"
+                heart.style.left = `${Math.floor(Math.random() * window.innerWidth)}px`
+                heart.style.fontSize = `${10 + Math.floor(Math.random() * 40)}px`
+                displayHeart.appendChild(heart)
+                setInterval(() => {
+                    heart.remove()
+                },3000)
+            },150)
+        }
         btn.addEventListener("click", () =>{
+            clearInterval(active)
+            displayHeart.style.display = "none"
             let white = false
             btn.style.display = "none"
             setInterval(() => {
@@ -21,6 +38,7 @@
                 white = !white
             },50)
         })
+        activeHeart()
     </script>
 </body>
 </html>
